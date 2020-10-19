@@ -96,8 +96,8 @@
             android:layout_width="135dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="POST"
             android:onClick="onPostButtonClick"
+            android:text="POST"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
 
@@ -109,8 +109,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="PUT"
             android:onClick="onPutButtonClick"
+            android:text="PUT"
             app:layout_constraintEnd_toStartOf="@+id/button3"
             app:layout_constraintStart_toEndOf="@+id/button"
             app:layout_constraintTop_toTopOf="@+id/button" />
@@ -119,8 +119,8 @@
             android:id="@+id/button3"
             android:layout_width="136dp"
             android:layout_height="wrap_content"
-            android:text="DELETE"
             android:onClick="onDeleteButtonClick"
+            android:text="DELETE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/button2" />
 
@@ -133,14 +133,15 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="GET"
             android:onClick="onGetButtonClick"
+            android:text="GET"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-        <TextView
-            android:id="@+id/textView4"
+
+        <ScrollView
+            android:id="@+id/scrollviewResult"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -149,11 +150,24 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:text="result"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4" />
+            app:layout_constraintTop_toBottomOf="@+id/button4"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="result" />
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

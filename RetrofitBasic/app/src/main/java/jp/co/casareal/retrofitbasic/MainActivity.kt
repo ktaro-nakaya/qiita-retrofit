@@ -1,20 +1,21 @@
 package jp.co.casareal.retrofitbasic
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelLazy
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
 import jp.co.casareal.retrofitbasic.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity() {
 
+    val scope = CoroutineScope(Dispatchers.IO)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,7 +72,17 @@ class MainActivity : AppCompatActivity() {
 
         val service = retrofit.create(MyService::class.java)
 
-        service.listPosts()
+        val listPosts = service.getRawResponseForPosts()
+
+        scope.launch {
+
+            val responseBody = listPosts.execute()
+            responseBody.body()?.let {
+                withContext(Dispatchers.Main) {
+                    textResult.text = it.string()
+                }
+            }
+        }
     }
 
 
