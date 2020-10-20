@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     // Retrofit本体
     private val retrofit = Retrofit.Builder().apply {
         baseUrl("http://10.0.2.2:3000/")
+
     }.build()
 
     // サービスクラスの実装オブジェクト取得
