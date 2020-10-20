@@ -37,7 +37,7 @@
             android:layout_marginRight="8dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@{model.id}"
+            android:text="@={model.id}"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
@@ -61,7 +61,7 @@
             android:layout_marginLeft="8dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@{model.title}"
+            android:text="@={model.title}"
             app:layout_constraintBottom_toBottomOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
             app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -85,7 +85,7 @@
             android:layout_marginLeft="8dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@{model.author}"
+            android:text="@={model.author}"
             app:layout_constraintBottom_toBottomOf="@+id/textView3"
             app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
             app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -158,14 +158,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textResult"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="result" />
+                    android:text="@{model.result}" />
             </LinearLayout>
         </ScrollView>
 
